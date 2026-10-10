@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+!.env.example
+data
+frontend/node_modules
+frontend/dist
+frontend/*.tsbuildinfo
+dola2api
+dola2api.exe
+*.log
+.shots
+.chrome-profile
+.workbuddy-ai

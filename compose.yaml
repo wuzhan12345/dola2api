@@ -1,0 +1,33 @@
+name: dola2api
+services:
+  app:
+    image: dola2api:${DOLA2API_IMAGE_TAG:-local}
+    build:
+      context: .
+    restart: unless-stopped
+    ports:
+      - "${DOLA2API_BIND_ADDRESS:-0.0.0.0}:${DOLA2API_PORT:-8083}:8080"
+    environment:
+      DOLA2API_ADMIN_USER: ${DOLA2API_ADMIN_USER:-admin}
+      DOLA2API_ADMIN_PASSWORD: ${DOLA2API_ADMIN_PASSWORD:?Set DOLA2API_ADMIN_PASSWORD in .env}
+      TZ: Asia/Shanghai
+    volumes:
+      - data:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    cpus: 1.0
+    pids_limit: 128
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  data:

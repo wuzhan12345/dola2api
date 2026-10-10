@@ -48,6 +48,8 @@
 
 ## 快速开始
 
+也可以使用 Docker Compose 部署，宿主机无需安装 Go 或 Node：[容器部署说明](deploy/docker.md)。
+
 ### 环境要求
 
 - Go 1.24+
