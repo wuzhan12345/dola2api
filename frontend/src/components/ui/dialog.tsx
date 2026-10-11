@@ -68,9 +68,9 @@ function DialogContent({
   const context = React.useContext(DialogContext);
   if (!context?.open) return null;
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 isolate flex items-center justify-center p-4">
       <div
-        className="fixed inset-0 bg-black/45 backdrop-blur-[1px] animate-in fade-in-0"
+        className="absolute inset-0 z-0 bg-black/45 backdrop-blur-[1px] animate-in fade-in-0"
         onClick={() => {
           context.setOpen(false);
           onClose?.();

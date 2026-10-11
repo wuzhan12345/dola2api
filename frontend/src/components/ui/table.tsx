@@ -40,7 +40,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
     <tr
       ref={ref}
       className={cn(
-        "group border-b transition-colors hover:bg-[color-mix(in_oklab,var(--secondary)_45%,var(--background))] data-[state=selected]:bg-secondary",
+        "group border-b transition-colors hover:bg-secondary/45 data-[state=selected]:bg-secondary",
         className,
       )}
       {...props}
@@ -54,7 +54,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, React.ThHTMLAttributes<
     <th
       ref={ref}
       className={cn(
-        "h-9 px-2 text-left align-middle text-xs font-normal text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[1px]",
+        "h-9 px-2 text-left align-middle text-xs font-normal text-muted-foreground [&>[role=checkbox]]:translate-y-[1px]",
         className,
       )}
       {...props}
@@ -68,7 +68,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, React.TdHTMLAttributes<
     <td
       ref={ref}
       className={cn(
-        "px-2 py-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[1px]",
+        "px-2 py-2 align-middle [&>[role=checkbox]]:translate-y-[1px]",
         className,
       )}
       {...props}
@@ -89,7 +89,7 @@ const TableActionCell = React.forwardRef<HTMLTableCellElement, React.TdHTMLAttri
     <TableCell
       ref={ref}
       className={cn(
-        "sticky right-0 z-10 w-12 min-w-12 bg-background px-2 transition-colors group-hover:bg-[color-mix(in_oklab,var(--secondary)_45%,var(--background))] group-data-[state=selected]:bg-secondary",
+        "sticky right-0 z-10 w-12 min-w-12 bg-background px-2 transition-colors group-hover:bg-secondary/45 group-data-[state=selected]:bg-secondary",
         className,
       )}
       {...props}

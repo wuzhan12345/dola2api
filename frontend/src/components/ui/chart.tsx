@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useTheme } from "next-themes";
 import { ResponsiveContainer } from "recharts";
 
 import { cn } from "@/shared/lib/cn";
@@ -18,15 +19,16 @@ function ChartContainer({
   children,
   ...props
 }: React.ComponentProps<"div"> & { config: ChartConfig; children: React.ReactElement }) {
+  const { resolvedTheme } = useTheme();
   const style = React.useMemo(() => {
     const entries = Object.entries(config).map(([key, value]) => [
       `--color-${key}`,
       value.theme
-        ? `light-dark(${value.theme.light}, ${value.theme.dark})`
+        ? value.theme[resolvedTheme === "dark" ? "dark" : "light"]
         : value.color ?? "var(--muted-foreground)",
     ]);
     return Object.fromEntries(entries) as React.CSSProperties;
-  }, [config]);
+  }, [config, resolvedTheme]);
 
   return (
     <ChartContext.Provider value={{ config }}>

@@ -173,8 +173,8 @@ function DashboardMetric({
 function DashboardTrend({ dashboard, loading }: { dashboard?: DashboardDTO; loading: boolean }) {
   const { t, i18n } = useTranslation();
   const config = {
-    requests: { label: t("dashboard.requestsSeries"), theme: { light: "oklch(0.62 0.15 250)", dark: "oklch(0.72 0.13 250)" } },
-    failures: { label: t("dashboard.errorsSeries"), theme: { light: "oklch(0.62 0.2 25)", dark: "oklch(0.7 0.18 25)" } },
+    requests: { label: t("dashboard.requestsSeries"), theme: { light: "#2f8adc", dark: "#60aaf3" } },
+    failures: { label: t("dashboard.errorsSeries"), theme: { light: "#e64343", dark: "#fa6863" } },
   } satisfies ChartConfig;
   const data = (dashboard?.trend ?? []).map((item) => ({
     bucket: formatBucket(item.bucket, i18n.language),
@@ -281,7 +281,7 @@ function DashboardDistribution({ dashboard, loading }: { dashboard?: DashboardDT
 function DashboardTopModels({ dashboard, loading }: { dashboard?: DashboardDTO; loading: boolean }) {
   const { t } = useTranslation();
   const config = {
-    requests: { label: t("dashboard.requests"), theme: { light: "oklch(0.62 0.15 285)", dark: "oklch(0.72 0.13 285)" } },
+    requests: { label: t("dashboard.requests"), theme: { light: "#7f76dc", dark: "#9d98f2" } },
   } satisfies ChartConfig;
   const data = (dashboard?.topModels ?? []).map((item) => ({ model: item.model, requests: item.requests }));
 
@@ -371,7 +371,7 @@ function DashboardResources({ dashboard, loading }: { dashboard?: DashboardDTO; 
               <PieChart>
                 <Pie
                   data={[
-                    { name: "active", value: active, fill: "oklch(0.68 0.14 160)" },
+                    { name: "active", value: active, fill: "#2eb27a" },
                     { name: "unavailable", value: Math.max(unavailable, total === 0 ? 1 : 0), fill: "var(--border)" },
                   ]}
                   dataKey="value"

@@ -37,13 +37,13 @@ function AlertDialogContent({ className, children, ...props }: React.ComponentPr
   const context = React.useContext(AlertDialogContext);
   if (!context?.open) return null;
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="fixed inset-0 bg-black/45" onClick={() => context.setOpen(false)} aria-hidden="true" />
+    <div className="fixed inset-0 z-50 isolate flex items-center justify-center p-4">
+      <div className="absolute inset-0 z-0 bg-black/45" onClick={() => context.setOpen(false)} aria-hidden="true" />
       <div
         role="alertdialog"
         aria-modal="true"
         className={cn(
-          "relative z-10 grid w-full max-w-md gap-4 rounded-lg border border-border/60 bg-popover p-5 text-popover-foreground shadow-xl animate-in fade-in-0 zoom-in-95",
+          "relative z-10 grid max-h-[88vh] w-full max-w-md gap-4 overflow-y-auto rounded-lg border border-border/60 bg-popover p-5 text-popover-foreground shadow-xl animate-in fade-in-0 zoom-in-95",
           className,
         )}
         {...props}

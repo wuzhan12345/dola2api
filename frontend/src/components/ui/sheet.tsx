@@ -24,8 +24,8 @@ function Sheet({
 
   if (!open) return null;
   return createPortal(
-    <div className="fixed inset-0 z-50">
-      <div className="fixed inset-0 bg-black/45" onClick={() => onOpenChange(false)} aria-hidden="true" />
+    <div className="fixed inset-0 z-50 isolate">
+      <div className="absolute inset-0 z-0 bg-black/45" onClick={() => onOpenChange(false)} aria-hidden="true" />
       {children}
     </div>,
     document.body,

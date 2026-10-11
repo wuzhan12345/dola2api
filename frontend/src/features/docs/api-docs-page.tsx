@@ -154,11 +154,11 @@ export function ApiDocsPage() {
         <dl className="mt-3 grid gap-4 sm:grid-cols-2">
           <div>
             <dt className="text-[10px] text-muted-foreground">{t("docs.baseURL")}</dt>
-            <dd className="mt-1 font-mono text-xs">{base}</dd>
+            <dd className="mt-1 break-words font-mono text-xs">{base}</dd>
           </div>
           <div>
             <dt className="text-[10px] text-muted-foreground">{t("docs.auth")}</dt>
-            <dd className="mt-1 font-mono text-xs">Authorization: Bearer &lt;client key&gt;</dd>
+            <dd className="mt-1 break-words font-mono text-xs">Authorization: Bearer &lt;client key&gt;</dd>
           </div>
         </dl>
         <p className="mt-3 text-[11px] leading-5 text-muted-foreground">{t("docs.authHelp")}</p>
@@ -209,11 +209,11 @@ export function ApiDocsPage() {
         ) : null}
 
         <div className="mt-4 grid gap-3 lg:grid-cols-2">
-          <div className="space-y-1">
+          <div className="min-w-0 space-y-1">
             <h3 className="text-xs font-medium">{t("docs.requestExample")}</h3>
             <pre className="max-h-72 overflow-auto rounded-md bg-secondary/60 p-3 font-mono text-[11px] leading-5">{doc.request}</pre>
           </div>
-          <div className="space-y-1">
+          <div className="min-w-0 space-y-1">
             <h3 className="text-xs font-medium">{t("docs.responseExample")}</h3>
             <pre className="max-h-72 overflow-auto rounded-md bg-secondary/60 p-3 font-mono text-[11px] leading-5">{doc.response}</pre>
           </div>
