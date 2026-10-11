@@ -256,10 +256,10 @@ export function AppShell() {
 
       <div className="flex min-h-screen flex-col lg:pl-[288px]">
         <header className="sticky top-0 z-40 flex h-12 items-center justify-between border-b bg-background px-4 lg:hidden">
+          <Button variant="ghost" size="icon" className="size-8" aria-label={t("shell.openNavigation")} onClick={() => setMobileOpen(true)}>
+            <Menu className="size-4" />
+          </Button>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <Button variant="ghost" size="icon" className="size-8" aria-label={t("shell.openNavigation")} onClick={() => setMobileOpen(true)}>
-              <Menu className="size-4" />
-            </Button>
             <SheetContent className="px-3 py-4" onClose={() => setMobileOpen(false)}>
               <SheetHeader className="h-7 shrink-0 px-2.5 text-left">
                 <SheetTitle className="flex h-7 items-center text-base">{t("appName")}</SheetTitle>
